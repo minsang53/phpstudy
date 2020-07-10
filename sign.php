@@ -3,7 +3,7 @@
 <title>Sign</title>
 </head>
 <h3>회원가입</h3>
-<form method="post" action="signpage.php">
+<form method="post" action="signPage.php">
 아이디 <input type="text" name="id">
 비밀번호 <input type="password" name="pwd">
 비밀번호 확인<input type="password" name="pwd2">
