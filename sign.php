@@ -4,7 +4,7 @@
 </head>
 <h3>회원가입</h3>
 <form method="post" action="signPage.php">
-아이디 <input type="text" name="id" id="id"/><button id="click">중복 확인</button><p id="check">111</p>
+아이디 <input type="text" name="id" id="id"/><p id="check"></p>
 비밀번호 <input type="password" name="pwd" id="pw" onchange="check()"><p id="pwdCheck"></p>
 비밀번호 확인<input type="password" id="pw2" name="pwd2" onchange="comparePwd()"/><p id="pwdCheck2"></p>
 이름 <input type="text" name="usr_name"/>
@@ -26,7 +26,7 @@ function check(){
 	    return true;
 	}
 	else{
-      	document.getElementById("pwdCheck").innerHTML="실패";
+      	document.getElementById("pwdCheck").innerHTML="대소문자1개+특수문자1개+숫자를 포함하여 비밀번호를 구성해 주십시오.";
       	return false;
 	}
 }
@@ -43,13 +43,13 @@ function comparePwd(){
 	}
 }
 //아이디 중복체크
-$("#check").click(function(){
-	alert($("#id").val());
+$("#id").change(function(){
+	//alert($("#id").val());
     $.ajax({url:"test.php",
     type:"post",
     data:{id:$("#id").val()},
     success:function(result){
-        alert(result);
+        //alert(result);
         if(result=="true"){
         	$("#check").html("사용하실 수 있는 아이디 입니다.");
         }else{
